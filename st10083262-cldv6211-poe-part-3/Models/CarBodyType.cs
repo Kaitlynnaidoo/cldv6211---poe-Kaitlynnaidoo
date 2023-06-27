@@ -16,7 +16,7 @@ namespace st10083262_cldv6211_poe_part_3.Models
         [Column("BodyTypeID")]
         public int BodyTypeId { get; set; }
         [StringLength(50)]
-        public string BodyTypeName { get; set; }
+        public string TypeName { get; set; }
 
         [InverseProperty(nameof(Car.BodyType))]
         public virtual ICollection<Car> Cars { get; set; }

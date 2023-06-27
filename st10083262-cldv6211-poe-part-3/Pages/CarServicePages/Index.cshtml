@@ -1,0 +1,42 @@
+﻿@page
+@model st10083262_cldv6211_poe_part_3.Pages.CarServicePages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarService[0].Kilometerstravelled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarService[0].ServicedKilometers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CarService) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kilometerstravelled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicedKilometers)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RegistrationNumber">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.RegistrationNumber">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RegistrationNumber">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

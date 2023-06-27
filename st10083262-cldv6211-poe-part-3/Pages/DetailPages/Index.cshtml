@@ -1,0 +1,48 @@
+﻿@page
+@model st10083262_cldv6211_poe_part_3.Pages.DetailPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Detail[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detail[0].EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detail[0].MobileNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Detail) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DetailId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DetailId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DetailId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

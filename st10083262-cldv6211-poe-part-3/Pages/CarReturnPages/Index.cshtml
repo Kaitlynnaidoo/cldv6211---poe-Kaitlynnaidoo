@@ -1,0 +1,54 @@
+﻿@page
+@model st10083262_cldv6211_poe_part_3.Pages.CarReturnPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarReturn[0].ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarReturn[0].FineAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarReturn[0].ElapsedDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarReturn[0].RentalInfo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CarReturn) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FineAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ElapsedDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalInfo.RentalId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ReturnId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ReturnId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ReturnId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
